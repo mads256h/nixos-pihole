@@ -204,7 +204,6 @@
   };
 
   nix.gc.automatic = true;
-  nix.settings.auto-optimise-store = true;
 
 }
 
