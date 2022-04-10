@@ -5,8 +5,6 @@
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # File systems configuration for using the installer's partition layout
   fileSystems = {
     # Prior to 19.09, the boot partition was hosted on the smaller first partition
@@ -60,6 +58,7 @@
 
   environment.systemPackages = with pkgs; [
     bind
+    git
   ];
 
   programs.neovim.enable = true;
@@ -205,6 +204,7 @@
   };
 
   nix.gc.automatic = true;
+  nix.settings.auto-optimise-store = true;
 
 }
 
