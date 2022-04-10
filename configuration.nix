@@ -32,6 +32,10 @@
     gpu_mem=16
   '';
 
+  boot.blacklistedKernelModules = [
+    "bluetooth"
+  ];
+
 
   imports =
     [
@@ -145,7 +149,7 @@
     podman exec pihole pihole -a adlist add "https://v.firebog.net/hosts/Prigent-Crypto.txt"
     podman exec pihole pihole -a adlist add "https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser"
 
-    
+
     podman exec pihole pihole -b "dubaid.co.uk"
     podman exec pihole pihole --regex '\.asia$'
     podman exec pihole pihole --regex '\.cn$'
@@ -153,7 +157,7 @@
     podman exec pihole pihole --regex '(\.|^)open-telekom-cloud\.com$'
     podman exec pihole pihole --regex 'dbank'
     podman exec pihole pihole --regex 'hicloud'
-  
+
     podman exec pihole pihole -w "connectivitycheck.cbg-app.huawei.com"
     podman exec pihole pihole -w "connectivitycheck.platform.hicloud.com"
     podman exec pihole pihole -w "fonts.gstatic.com"
@@ -205,7 +209,4 @@
   };
 
   nix.gc.automatic = true;
-
 }
-
-
