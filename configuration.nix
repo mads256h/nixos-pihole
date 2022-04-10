@@ -99,6 +99,10 @@
 
   systemd.services."podman-pihole".postStart = ''
     sleep 10s
+
+    podman exec pihole pihole -a addcustomdns 192.168.1.150 server-mads.lan false
+    podman exec pihole pihole -a addcustomdns 192.168.1.114 pihole.lan true
+
     podman exec pihole pihole -a adlist add "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt"
     podman exec pihole pihole -a adlist add "https://adaway.org/hosts.txt"
     podman exec pihole pihole -a adlist add "https://v.firebog.net/hosts/AdguardDNS.txt"
@@ -159,9 +163,6 @@
 
 
     podman exec pihole pihole -g
-
-    podman exec pihole pihole -a addcustomdns 192.168.1.150 server-mads.lan false
-    podman exec pihole pihole -a addcustomdns 192.168.1.114 pihole.lan true
   '';
 
 
