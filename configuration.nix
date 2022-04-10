@@ -33,6 +33,10 @@
   '';
 
   boot.blacklistedKernelModules = [
+    "btqca"
+    "btsdio"
+    "hci_uart"
+    "btbcm"
     "bluetooth"
   ];
 
