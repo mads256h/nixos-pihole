@@ -52,7 +52,6 @@
   networking.hostName = "pihole";
 
   networking.nameservers = [
-    "127.0.0.1"
     "8.8.8.8"
   ];
 
@@ -82,7 +81,7 @@
 
   virtualisation.oci-containers.backend = "podman";
   virtualisation.oci-containers.containers.pihole = {
-    image = "pihole/pihole:latest";
+    image = "pihole/pihole:2022.05";
     ports = [
       "53:53/udp"
       "53:53/tcp"
