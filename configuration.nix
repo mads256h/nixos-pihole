@@ -58,6 +58,9 @@
   networking.firewall.allowedTCPPorts = [ 53 80 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
 
+  # Disable ipv6
+  networking.enableIPv6 = false;
+
   console.keyMap = "dk";
 
   time.timeZone = "Europe/Copenhagen";
@@ -81,7 +84,7 @@
 
   virtualisation.oci-containers.backend = "podman";
   virtualisation.oci-containers.containers.pihole = {
-    image = "pihole/pihole:2022.05";
+    image = "pihole/pihole:2022.07.1";
     ports = [
       "53:53/udp"
       "53:53/tcp"
@@ -211,5 +214,9 @@
     allowReboot = true;
   };
 
-  nix.gc.automatic = true;
+  nix.gc = {
+    automatic = true;
+    options = "-d";
+  };
+  nix.autoOptimiseStore = true;
 }
