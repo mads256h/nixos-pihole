@@ -213,6 +213,9 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;
+
+    # Prevent silencing of build output
+    flags = lib.mkForce [];
   };
 
   nix.gc = {
