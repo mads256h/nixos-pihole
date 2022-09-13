@@ -207,7 +207,7 @@
     enable = true;
     permitRootLogin = "yes";
     passwordAuthentication = false;
-    challengeResponseAuthentication = false;
+    kbdInteractiveAuthentication = false;
   };
 
   system.autoUpgrade = {
