@@ -84,7 +84,7 @@
 
   virtualisation.oci-containers.backend = "podman";
   virtualisation.oci-containers.containers.pihole = {
-    image = "pihole/pihole:2022.07.1";
+    image = "pihole/pihole:2022.09.4";
     ports = [
       "53:53/udp"
       "53:53/tcp"
