@@ -44,7 +44,6 @@
   imports =
     [
       <nixpkgs/nixos/modules/profiles/minimal.nix>
-      <nixpkgs/nixos/modules/profiles/hardened.nix>
     ];
 
   networking.useDHCP = false;
